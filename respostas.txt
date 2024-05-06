@@ -1,0 +1,90 @@
+a)
+mae(ana, eva).
+mae(bia, rai).
+mae(bia, clo).
+mae(bia, ary).
+mae(lia, gal).
+mae(eva, noe).
+
+pai(rai, noe).
+pai(ivo, eva).
+pai(gil, rai).
+pai(gil, clo).
+pai(gil, ary).
+pai(ary, gal).
+
+
+b)
+
+mae(ana, eva).
+mae(bia, rai).
+mae(bia, clo).
+mae(bia, ary).
+mae(lia, gal).
+mae(eva, noe).
+
+pai(rai, noe).
+pai(ivo, eva).
+pai(gil, rai).
+pai(gil, clo).
+pai(gil, ary).
+pai(ary, gal).
+
+mulher(ana).
+mulher(eva).
+mulher(bia).
+mulher(clo).
+mulher(lia).
+mulher(gal).
+
+homem(ivo).
+homem(gil).
+homem(rai).
+homem(noe).
+homem(ary).
+
+c)
+gerou(X, Y) :-
+    pai(X, Y);
+    mae(X, Y).
+
+
+d)
+filho(X, Y) :-
+    gerou(Y, X), homem(X).
+
+filha(X, Y) :-
+    gerou(Y, X), mulher(X).
+
+tio(X, Y) :-
+    gerou(Z, Y), gerou(V, Z), gerou(V, X), homem(X).
+
+tia(X, Y) :-
+    gerou(Z, Y), gerou(V, Z), gerou(V, X), mulher(X).
+
+
+primo(X, Y) :-
+    homem(X), gerou(Z, X), gerou(Z, W), gerou(W, Y).
+
+prima(X, Y) :-
+    homem(X), gerou(Z, X), gerou(Z, W), gerou(W, Y).
+
+avô(X, Y) :-
+    homem(X), gerou(X, Z), gerou(Z, Y).
+
+avó(X, Y) :-
+    mulher(X), gerou(X, Z), gerou(Z, Y).
+
+
+1.3. 
+a)
+
+eFeliz(X) :-
+    gerou(X, Y).
+
+b)
+
+casal(X,Y) :-
+    gerou(X, Z), gerou(Y, Z).
+
+
